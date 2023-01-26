@@ -1,0 +1,35 @@
+comments_1:
+  story: story_9
+  messages: hi welcome the agrya
+  user: mohan
+  parent: nil
+
+comments_2:
+  story: story_1
+  messages: hi welcome the agrya
+  user: kathir
+  parent: nil
+
+comments_3:
+  story: story_1
+  messages: hi welcome the agrya
+  user: kathir
+  parent: comments_2
+
+comments_4:
+  story: story_4
+  messages: hi welcome the agrya
+  user: sunil
+  parent: nil
+
+comments_5:
+  story: story_4
+  messages: hi welcome
+  user: sunil
+  parent: comments_4
+
+comments_6:
+  story: story_4
+  messages: hi
+  user: sunil
+  parent: comments_4

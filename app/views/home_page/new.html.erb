@@ -1,0 +1,7 @@
+<div>
+  <h3>With new line here</h3>
+  <%= form_with model: @comment, url: comments_path(id: @post.id, by: @post.by), method: :post, local: true do |f| %>
+    <%= f.text_area :messages, style: 'white-space: pre-line; height:100px; width: 250px;' %> <br> <br>
+    <%= f.submit 'Add comment' %>
+  <% end %>
+</div>

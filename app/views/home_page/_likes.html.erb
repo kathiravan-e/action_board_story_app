@@ -1,0 +1,4 @@
+<%= turbo_frame_tag "#{dom_id(post)}_likes" do %>
+  <%= post.likes %> <span style="opacity: 0.5">
+  <%= post.time.present? ? "upvotes by , ".gsub!(',', Time.parse(post.time.to_s).to_s) : nil %></span>
+<% end %>

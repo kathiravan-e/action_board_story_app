@@ -1,0 +1,16 @@
+<% object.each do |comment| %>
+  <div class="section" style="padding: 30px">
+    <div class="container">
+      <div style="font-weight: bold;">
+        <%= comment.user %> says:
+      </div>
+      <div>
+        <%= simple_format(comment.messages).html_safe %>
+      </div>
+    </div>
+    <%= link_to 'Reply', "comments/#{comment.id}/new", method: :get, class: 'button is-success is-outlined' %>
+    <%= render "comments/comment", object: comment.childs %>
+  </div>
+<% end %>
+
+

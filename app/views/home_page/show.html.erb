@@ -1,0 +1,25 @@
+<div class="box">
+  <div class="container">
+    <%= @post.title %>
+    <% if @post.url.present? %>
+      ( <%= link_to "#{URI(@post.url).hostname}", @post.url, target: '_blank' %> )
+    <% end %>
+  </div>
+
+  <div class="columns">
+    <div class="" style="margin-left: 15px;"><%= @post.likes %> Likes
+    </div>
+    <div style="margin-left: 200px;position: inherit;margin-top: -18px;"><%= @post.comments.count %> comments</div>
+  </div>
+
+  <div class="comment">
+    <%= link_to 'Reply', "#{@post.id}/new", method: :get, class: 'button is-success is-outlined' %>
+  </div>
+
+  <% if @post.comments.present? %>
+    <h4>comments</h4>
+    <hr>
+    <%= render "comments/comment", object: @post.comments.is_parent %>
+  <% end %>
+</div>
+</div>

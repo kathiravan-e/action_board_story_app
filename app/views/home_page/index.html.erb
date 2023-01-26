@@ -1,0 +1,29 @@
+<h3>List of Posts</h3>
+<div class="section">
+  <div class="container">
+    <% @posts.each.with_index do |post, index| %>
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content" style="color: black;margin-left: 10px;">
+              <%= index + 1 %>
+              . &nbsp; &nbsp; <%= link_to "#{post.title}", home_page_path(post), style: 'color:black;' %>
+              <% if post.url.present? %>
+                ( <%= link_to "#{URI(post.url).hostname}", post.url, target: '_blank' %> )
+              <% end %>
+              <span style='margin-top: -20px;'>
+              <%= button_to '^', home_page_path(post), method: :patch, data: { turbo_frame: '_top' } %>
+              </span>
+            </div>
+          </div>
+          <div class="comment-count" style="margin-left: 40px;margin-top: -16px;">
+            <span class="tag is-rounded" id="<%= dom_id post %>">
+              <%= render partial: 'home_page/likes', locals: { post: post } %>
+            </span> &nbsp; &nbsp; | &nbsp; &nbsp;
+            <span class="tag is-rounded" ><%= post.comments.count %> comments</span>
+          </div>
+        </div>
+      </div> &nbsp; &nbsp; &nbsp; &nbsp;
+    <% end %>
+  </div>
+</div>
